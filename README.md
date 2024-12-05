@@ -40,11 +40,11 @@ Supply/Demand AMM is designed to provide an efficient and user-friendly decentra
 
 ---
 
-## 🛠️ Other Tools
+<!-- ## 🛠️ Other Tools
 - **Chainlink Oracles:** For external price feeds and market data.
-- **The Graph:** To index and query on-chain data efficiently.
-- **Docker:** Simplifies deployment and ensures consistent environments.
-- **JWT Authentication:** For secure admin access.
+- **The Graph:** To index and query on-chain data efficiently. -->
+<!-- - **Docker:** Simplifies deployment and ensures consistent environments. -->
+<!-- - **JWT Authentication:** For secure admin access. -->
 
 ---
 
@@ -56,29 +56,29 @@ Supply/Demand AMM is designed to provide an efficient and user-friendly decentra
 | Admin           | Add token pairs, manage liquidity pools, and monitor platform-wide stats.   |
 
 ---
-
+<!-- 
 ## 📌 Future Enhancements
 
 - **Advanced Token Analytics:** Visualize trading history and performance charts.
 - **Multi-Pool Support:** Introduce support for multiple token pairs with individual pools.
 - **Fee Customization:** Allow dynamic adjustment of fees for specific pools.
-- **Governance:** Implement a governance model using a native token for protocol decisions.
+- **Governance:** Implement a governance model using a native token for protocol decisions. -->
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Install Docker and Node.js on your system.
+<!-- - Install Docker and Node.js on your system. -->
 - MetaMask or a similar Ethereum wallet.
 
 ### Setup Steps
 
-#### 1. Clone the Repository:
+<!-- #### 1. Clone the Repository:
 ```bash
 git clone https://github.com/<Your-GitHub-Username>/Supply-Demand-AMM.git
 cd Supply-Demand-AMM
-```
+``` -->
 
 #### 2. Install Dependencies:
 ```bash
