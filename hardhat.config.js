@@ -37,7 +37,7 @@
 //----________________________________________*********************************************_______________*****************************__________________
 
 require("@nomicfoundation/hardhat-toolbox");
-require('dotenv').config();
+// require('dotenv').config();
 
 module.exports = {
   defaultNetwork: "localhost",
@@ -46,7 +46,8 @@ module.exports = {
       url: "http://127.0.0.1:8545", // Hardhat node URL
     },
     hardhat: {
-      accounts: {
+      accounts:
+       {
         count: 10,
         initialBalance: "1000000000000000000000", // 1000 ETH
       },
