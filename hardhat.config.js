@@ -37,13 +37,17 @@
 //----________________________________________*********************************************_______________*****************************__________________
 
 require("@nomicfoundation/hardhat-toolbox");
-// require('dotenv').config();
+require('dotenv').config();
 
 module.exports = {
   defaultNetwork: "localhost",
   networks: {
     localhost: {
       url: "http://127.0.0.1:8545", // Hardhat node URL
+    },
+    sepolia: {
+            url: `https://sepolia.infura.io/v3/${process.env.INFURA_URL}`,
+            accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
     },
     hardhat: {
       accounts:

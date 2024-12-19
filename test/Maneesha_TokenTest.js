@@ -1,10 +1,3 @@
-
-
-
-
-// -----------------------------------------------------------------------------------------------------------------------
-
-
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
@@ -54,7 +47,6 @@ describe("Maneesha_Token Contract", function () {
             // Attempt to mint tokens from a non-owner account
             await expect(
                 maneeshaToken.connect(addr1).mint(addr1.address, mintAmount)
-            // ).to.be.revertedWith("Ownable: caller is not the owner");
         ).to.be.revertedWithCustomError(maneeshaToken, "OwnableUnauthorizedAccount");
         });
     });
@@ -94,7 +86,6 @@ describe("Maneesha_Token Contract", function () {
             // addr1 tries to transfer without any tokens
             await expect(
                 maneeshaToken.connect(addr1).transfer(addr2.address, transferAmount)
-            // ).to.be.revertedWith("ERC20: transfer amount exceeds balance");
         ).to.be.revertedWithCustomError(maneeshaToken, "ERC20InsufficientBalance");
         });
     });
@@ -112,7 +103,6 @@ describe("Maneesha_Token Contract", function () {
             // addr1 attempts to transfer ownership
             await expect(
                 maneeshaToken.connect(addr1).transferOwnership(addr2.address)
-            // ).to.be.revertedWith("Ownable: caller is not the owner");
         ).to.be.revertedWithCustomError(maneeshaToken, "OwnableUnauthorizedAccount");
         });
     });
@@ -160,7 +150,6 @@ describe("Maneesha_Token Contract", function () {
             // addr1 tries to transfer more than the approved amount
             await expect(
                 maneeshaToken.connect(addr1).transferFrom(owner.address, addr2.address, transferAmount)
-            // ).to.be.revertedWith("ERC20: transfer amount exceeds allowance");
         ).to.be.revertedWithCustomError(maneeshaToken, "AllowanceExceedsError");
         });
     });

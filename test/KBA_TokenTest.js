@@ -1,11 +1,3 @@
-
-
-
-// --------------------------------------------------------------------
-
-
-
-
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
@@ -56,31 +48,12 @@ describe("KBA_Token Contract", function () {
             // Attempt to mint from a non-owner account
             await expect(
                 kbaToken.connect(addr1).mint(addr1.address, mintAmount)
-            // ).to.be.revertedWith("Ownable: caller is not the owner");
         ).to.be.revertedWithCustomError(kbaToken, "OwnableUnauthorizedAccount");
         });
     });
 
     describe("ERC20 Functionality", function () {
-        // it("Should allow token transfers between accounts", async function () {
-        //     const mintAmount = ethers.parseUnits("100",18);
-        //     const transferAmount = ethers.parseUnits("50",18);
-
-        //     // Mint tokens to owner
-        //     await kbaToken.mint(owner.address, mintAmount);
-
-        //     // Transfer tokens from owner to addr1
-        //     await kbaToken.transfer(addr1.address, transferAmount);
-            
-        //     // Check balances
-        //     expect(await kbaToken.balanceOf(owner.address)).to.equals(
-        //         mintAmount.sub(transferAmount)
-        //     );
-        //     expect(await kbaToken.balanceOf(addr1.address)).to.equals(
-        //         transferAmount
-        //     );
-        // });
-
+        
         it("Should allow token transfers between accounts", async function () {
             const mintAmount = ethers.parseUnits("100", 18); // BigInt
             const transferAmount = ethers.parseUnits("50", 18); // BigInt
@@ -119,7 +92,6 @@ describe("KBA_Token Contract", function () {
             // addr1 tries to transfer tokens without any balance
             await expect(
                 kbaToken.connect(addr1).transfer(addr2.address, transferAmount)
-            // ).to.be.revertedWith("ERC20: transfer amount exceeds balance");
         ).to.be.revertedWithCustomError(kbaToken, "ERC20InsufficientBalance");
         });
     });
@@ -135,21 +107,6 @@ describe("KBA_Token Contract", function () {
             const allowance = await kbaToken.allowance(owner.address, addr1.address);
             expect(allowance).to.equals(approveAmount);
         });
-    
-        // it("Should allow the spender to transfer approved tokens", async function () {
-        //     const approveAmount = ethers.parseUnits("50", 18);
-        //     const transferAmount = ethers.parseUnits("30", 18);
-            
-        //     // Owner approves addr1 to spend 50 tokens
-        //     await kbaToken.approve(addr1.address, approveAmount);
-            
-        //     // addr1 transfers 30 tokens from the owner to addr2
-        //     await kbaToken.connect(addr1).transferFrom(owner.address, addr2.address, transferAmount);
-            
-        //     // Check balances after the transfer
-        //     expect(await kbaToken.balanceOf(owner.address)).to.equals(ethers.parseUnits("70", 18));
-        //     expect(await kbaToken.balanceOf(addr2.address)).to.equals(transferAmount);
-        // });
 
         it("Should allow the spender to transfer approved tokens", async function () {
             const approveAmount = ethers.parseUnits("50", 18);
@@ -169,21 +126,6 @@ describe("KBA_Token Contract", function () {
             expect(await kbaToken.balanceOf(addr2.address)).to.equals(transferAmount);
         });
         
-    
-        // it("Should fail if spender tries to transfer more than the approved amount", async function () {
-        //     const approveAmount = ethers.parseUnits("50", 18);
-        //     const transferAmount = ethers.parseUnits("60", 18);
-            
-        //     // Owner approves addr1 to spend 50 tokens
-        //     await kbaToken.approve(addr1.address, approveAmount);
-            
-        //     // addr1 tries to transfer more than the approved amount
-        //     await expect(
-        //         kbaToken.connect(addr1).transferFrom(owner.address, addr2.address, transferAmount)
-        //     // ).to.be.revertedWith("ERC20: transfer amount exceeds allowance");
-        // ).to.be.revertedWithCustomError(kbaToken, "AllowanceExceedsError"); // Update with your custom error
-        // });
-
         it("Should fail if spender tries to transfer more than the approved amount", async function () {
             const approveAmount = ethers.parseUnits("50", 18);
             const transferAmount = ethers.parseUnits("60", 18);
@@ -213,7 +155,5 @@ describe("KBA_Token Contract", function () {
             expect(allowance).to.equals(updatedApproveAmount);
         });
     });
-    
-
 });
 
